@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #efefef;
+
+  /* Taches orangées dans les coins */
+  background-image:
+          radial-gradient(850px at top left, rgba(255, 175, 120, 0.47) 0%, transparent 50%),
+          radial-gradient(850px at top right, rgba(255, 175, 120, 0.47) 0%, transparent 50%);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* Texture légère granuleuse comme dans l’image */
+  background-blend-mode: multiply;
+  background-size: cover;
+  color: #1a1a1a;
+}
+
+:root {
+  --font-main: var(--font-agdasima);
+}
+
+body {
+  font-family: var(--font-main), sans-serif;
+}
