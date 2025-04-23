@@ -166,3 +166,12 @@ a.secondary {
     filter: invert();
   }
 }
+
+.img_accueil {
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.sous_titre {
+  margin-left : 8rem;
+}
