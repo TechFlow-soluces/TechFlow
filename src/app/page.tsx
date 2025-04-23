@@ -57,20 +57,75 @@ export default function Home() {
 
                 <Image src={img_accueil} alt="Logo TechFlow" width={716} height={409} className={styles.img_accueil}/>
             </section>
-            <section id="services" style={{padding: '6rem 2rem', textAlign: 'center'}}>
-                <h2 className={styles.sous_titre} style={{
+            <section id="services" style={{padding: '6rem 2rem', backgroundColor: '#fff'}}>
+                <h2 style={{
                     fontSize: '3rem',
                     fontWeight: 600,
-                    marginBottom: '2rem',
-                    float: 'left',
+                    textAlign: 'center',
+                    marginBottom: '4rem',
                 }}>
                     Nos services
                 </h2>
+
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    gap: '3rem',
+                    maxWidth: '1200px',
+                    margin: '0 auto',
+                }}>
+                    {/* Bloc 1 */}
+                    <div style={{textAlign: 'center'}}>
+                        <Image
+                            src="/services/dev_web.svg"
+                            alt="Développement Web & Mobile"
+                            width={200}
+                            height={200}
+                            style={{marginBottom: '1rem'}}
+                        />
+                        <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>Développement Web & Mobile</h3>
+                        <p>
+                            Création de sites vitrines, e-commerce ou applications web/mobile personnalisées,
+                            performantes et modernes. Adaptées à vos besoins, optimisées SEO et responsives.
+                        </p>
+                    </div>
+
+                    {/* Bloc 2 */}
+                    <div style={{textAlign: 'center'}}>
+                        <Image
+                            src="/services/logiciel_metier.svg"
+                            alt="Logiciels métiers"
+                            width={200}
+                            height={200}
+                            style={{marginBottom: '1rem'}}
+                        />
+                        <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>Développement de logiciels métiers</h3>
+                        <p>
+                            Outils internes, gestion, automatisation, CRM, ERP… des solutions conçues sur mesure
+                            pour simplifier votre quotidien professionnel.
+                        </p>
+                    </div>
+
+                    {/* Bloc 3 */}
+                    <div style={{textAlign: 'center'}}>
+                        <Image
+                            src="/services/social_media.svg"
+                            alt="Réseaux sociaux & stratégie digitale"
+                            width={200}
+                            height={200}
+                            style={{marginBottom: '1rem'}}
+                        />
+                        <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>Stratégie digitale & réseaux sociaux</h3>
+                        <p>
+                            Développement de votre présence en ligne : création de contenu, animation de comptes,
+                            gestion de communauté, planification stratégique.
+                        </p>
+                    </div>
+                </div>
             </section>
+
         </>
 
 
-
-
-);
+    );
 }
