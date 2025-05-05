@@ -330,7 +330,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section id="projects" style={{ padding: "6rem 2rem", backgroundColor: "#f5f7fa" }}>
+            <section id="projects" style={{ padding: "6rem 2rem", backgroundColor: "#efefef" }}>
                 <div style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
                     <h2 style={{ fontSize: "3rem", fontWeight: 600, marginBottom: "2rem", color: "#013818" }}>
                         Nos réalisations
@@ -352,6 +352,82 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            <section id="contact" style={{ padding: '6rem 2rem', backgroundColor: '#fff' }}>
+                <div style={{
+                    maxWidth: '1200px',
+                    margin: '0 auto',
+                    backgroundColor: '#013818',
+                    padding: '4rem 2rem',
+                    borderRadius: '24px',
+                    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.75)',}}>
+                    <h2 style={{ fontSize: '2.8rem', fontWeight: 600, color: '#fff', marginBottom: '2rem', textAlign: 'center' }}>
+                        Contactez-nous
+                    </h2>
+                    <form
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '1.5rem',
+                            backgroundColor: '#f9f9f9',
+                            padding: '2rem',
+                            borderRadius: '16px',
+                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                        }}
+                    >
+                        <input
+                            type="text"
+                            placeholder="Votre nom"
+                            required
+                            style={{
+                                padding: '1rem',
+                                borderRadius: '8px',
+                                border: '1px solid #ccc',
+                                fontSize: '1rem',
+                            }}
+                        />
+                        <input
+                            type="email"
+                            placeholder="Votre adresse e-mail"
+                            required
+                            style={{
+                                padding: '1rem',
+                                borderRadius: '8px',
+                                border: '1px solid #ccc',
+                                fontSize: '1rem',
+                            }}
+                        />
+                        <textarea
+                            placeholder="Votre message"
+                            rows={6}
+                            required
+                            style={{
+                                padding: '1rem',
+                                borderRadius: '8px',
+                                border: '1px solid #ccc',
+                                fontSize: '1rem',
+                                resize: 'vertical',
+                            }}
+                        />
+                        <button
+                            type="submit"
+                            style={{
+                                backgroundColor: '#013818',
+                                color: '#fff',
+                                padding: '1rem 2rem',
+                                border: 'none',
+                                borderRadius: '8px',
+                                fontSize: '1rem',
+                                cursor: 'pointer',
+                                transition: 'background 0.3s ease',
+                            }}
+                        >
+                            Envoyer
+                        </button>
+                    </form>
+                </div>
+            </section>
+
 
 
 
