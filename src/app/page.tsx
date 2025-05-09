@@ -1,19 +1,54 @@
-import img_accueil from "@/app/assets/img/img_accueil.png";
-import dev_web from "@/app/assets/img/dev_web.svg";
-import logiciel_metier from "@/app/assets/img/logiciel_metier.svg";
-import social_media from "@/app/assets/img/social_media.svg";
-import definition_besoin from "@/app/assets/img/definition_besoin.svg";
-import developpement from "@/app/assets/img/developpement.svg";
-import livraison_projet from "@/app/assets/img/livraison_projet.svg";
-import SEO from "@/app/assets/img/SEO.svg";
-import maintenance from "@/app/assets/img/maintenance.svg";
-import Image from "next/image";
+'use client'
 
-import styles from "@/app/styles/page.module.css";
+import { useState } from 'react'
+import Image from 'next/image'
+import img_accueil from '@/app/assets/img/img_accueil.png'
+import dev_web from '@/app/assets/img/dev_web.svg'
+import logiciel_metier from '@/app/assets/img/logiciel_metier.svg'
+import social_media from '@/app/assets/img/social_media.svg'
+import definition_besoin from '@/app/assets/img/definition_besoin.svg'
+import developpement from '@/app/assets/img/developpement.svg'
+import livraison_projet from '@/app/assets/img/livraison_projet.svg'
+import SEO from '@/app/assets/img/SEO.svg'
+import maintenance from '@/app/assets/img/maintenance.svg'
+import styles from '@/app/styles/page.module.css'
 
 export default function Home() {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
+    const [success, setSuccess] = useState(false)
+    const [error, setError] = useState('')
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setSuccess(false)
+        setError('')
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message }),
+            })
+
+            if (res.ok) {
+                setSuccess(true)
+                setName('')
+                setEmail('')
+                setMessage('')
+            } else {
+                const data = await res.json()
+                setError(data?.error || 'Une erreur est survenue.')
+            }
+        } catch (err) {
+            setError('Erreur réseau, veuillez réessayer plus tard.')
+        }
+    }
+
     return (
         <>
+            {/* Accueil */}
             <section id="home" style={{textAlign: 'center', padding: '6rem 2rem'}}>
                 <div style={{
                     display: 'flex',
@@ -67,6 +102,7 @@ export default function Home() {
 
                 <Image src={img_accueil} alt="Logo TechFlow" width={716} height={409} className={styles.img_accueil}/>
             </section>
+
             <section id="services" style={{ padding: '6rem 2rem', backgroundColor: '#fff' }}>
                 <div style={{
                     maxWidth: '1200px',
@@ -353,32 +389,34 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* Contact */}
             <section id="contact" style={{ padding: '6rem 2rem', backgroundColor: '#fff' }}>
                 <div style={{
-                    maxWidth: '1200px',
+                    maxWidth: '800px',
                     margin: '0 auto',
                     backgroundColor: '#013818',
                     padding: '4rem 2rem',
                     borderRadius: '24px',
-                    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.75)',}}>
+                    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.75)',
+                }}>
                     <h2 style={{ fontSize: '2.8rem', fontWeight: 600, color: '#fff', marginBottom: '2rem', textAlign: 'center' }}>
                         Contactez-nous
                     </h2>
-                    <form
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '1.5rem',
-                            backgroundColor: '#f9f9f9',
-                            padding: '2rem',
-                            borderRadius: '16px',
-                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-                        }}
-                    >
+                    <form onSubmit={handleSubmit} style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '1.5rem',
+                        backgroundColor: '#f9f9f9',
+                        padding: '2rem',
+                        borderRadius: '16px',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                    }}>
                         <input
                             type="text"
                             placeholder="Votre nom"
                             required
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             style={{
                                 padding: '1rem',
                                 borderRadius: '8px',
@@ -390,6 +428,8 @@ export default function Home() {
                             type="email"
                             placeholder="Votre adresse e-mail"
                             required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             style={{
                                 padding: '1rem',
                                 borderRadius: '8px',
@@ -401,6 +441,8 @@ export default function Home() {
                             placeholder="Votre message"
                             rows={6}
                             required
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
                             style={{
                                 padding: '1rem',
                                 borderRadius: '8px',
@@ -409,36 +451,23 @@ export default function Home() {
                                 resize: 'vertical',
                             }}
                         />
-                        <button
-                            type="submit"
-                            style={{
-                                backgroundColor: '#013818',
-                                color: '#fff',
-                                padding: '1rem 2rem',
-                                border: 'none',
-                                borderRadius: '8px',
-                                fontSize: '1rem',
-                                cursor: 'pointer',
-                                transition: 'background 0.3s ease',
-                            }}
-                        >
+                        <button type="submit" style={{
+                            backgroundColor: '#013818',
+                            color: '#fff',
+                            padding: '1rem 2rem',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontSize: '1rem',
+                            cursor: 'pointer',
+                        }}>
                             Envoyer
                         </button>
+
+                        {success && <p style={{ color: 'green' }}>Votre message a été envoyé avec succès.</p>}
+                        {error && <p style={{ color: 'red' }}>{error}</p>}
                     </form>
                 </div>
             </section>
-
-
-
-
-
-
-
-
-
-
         </>
-
-
-    );
+    )
 }
