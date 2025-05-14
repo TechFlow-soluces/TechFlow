@@ -4,6 +4,7 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Agdasima } from 'next/font/google';
+import Script from 'next/script';
 
 const agdasima = Agdasima({
     weight: '400',
@@ -24,6 +25,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
+
+        <Script
+            src="https://tarteaucitron.io/load.js?domain=localhost&uuid=2343bbf5741c55fb9d50f968674e4112009dd854"
+            strategy="afterInteractive"
+        />
+
+        {/* Bouton RGPD dans le footer */}
+        <Script id="tarteaucitron-openpanel" strategy="afterInteractive">
+            {`
+                    window.addEventListener('DOMContentLoaded', function() {
+                        const manageCookiesBtn = document.createElement('button');
+                        manageCookiesBtn.innerText = 'Gérer mes cookies';
+                        manageCookiesBtn.style.position = 'fixed';
+                        manageCookiesBtn.style.bottom = '20px';
+                        manageCookiesBtn.style.right = '20px';
+                        manageCookiesBtn.style.zIndex = '9999';
+                        manageCookiesBtn.style.padding = '10px';
+                        manageCookiesBtn.style.backgroundColor = '#333';
+                        manageCookiesBtn.style.color = '#fff';
+                        manageCookiesBtn.style.border = 'none';
+                        manageCookiesBtn.style.borderRadius = '5px';
+                        manageCookiesBtn.style.cursor = 'pointer';
+                        manageCookiesBtn.onclick = () => {
+                            window.tarteaucitron.userInterface.openPanel();
+                        };
+                        document.body.appendChild(manageCookiesBtn);
+                    });
+                `}
+        </Script>
+
         </body>
         </html>
     );
