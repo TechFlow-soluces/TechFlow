@@ -41,6 +41,7 @@ export default function Home() {
                 const data = await res.json()
                 setError(data?.error || 'Une erreur est survenue.')
             }
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (err) {
             setError('Erreur réseau, veuillez réessayer plus tard.')
         }

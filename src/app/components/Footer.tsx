@@ -1,14 +1,8 @@
 'use client';
 
 export default function Header() {
-    const scrollToSection = (id: string) => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-
-    };
-
     return (
-    <footer style={{
+        <footer style={{
     backgroundColor: '#013818',
     color: '#f0f0f0',
     padding: '3rem 2rem',
