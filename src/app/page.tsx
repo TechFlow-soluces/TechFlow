@@ -137,7 +137,7 @@ export default function Home() {
                             color: '#f0f0f0',
                             boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
                         }}>
-                            <Image src={dev_web} alt="Développement Web & Mobile" width={150} height={150} style={{ marginBottom: '1rem' }} />
+                            <Image src={dev_web} alt="Développement Web & Mobile" width={200} height={200} style={{ marginBottom: '1rem' }} />
                             <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#ffffff' }}>Développement Web & Mobile</h3>
                             <p>
                                 Sites vitrines, e-commerce ou applications web/mobile modernes, responsives et optimisées SEO.
@@ -153,7 +153,7 @@ export default function Home() {
                             color: '#f0f0f0',
                             boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
                         }}>
-                            <Image src={logiciel_metier} alt="Logiciels métiers" width={150} height={150} style={{ marginBottom: '1rem' }} />
+                            <Image src={logiciel_metier} alt="Logiciels métiers" width={200} height={200} style={{ marginBottom: '1rem' }} />
                             <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#ffffff' }}>Développement de logiciels métiers</h3>
                             <p>
                                 CRM, ERP, outils de gestion ou automatisation… des logiciels conçus sur mesure pour votre activité.
@@ -169,7 +169,7 @@ export default function Home() {
                             color: '#f0f0f0',
                             boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
                         }}>
-                            <Image src={social_media} alt="Stratégie digitale" width={150} height={150} style={{ marginBottom: '1rem' }} />
+                            <Image src={social_media} alt="Stratégie digitale" width={200} height={200} style={{ marginBottom: '1rem' }} />
                             <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#ffffff' }}>Stratégie digitale & réseaux sociaux</h3>
                             <p>
                                 Gestion de contenu, animation de vos réseaux, croissance organique et planification stratégique.
