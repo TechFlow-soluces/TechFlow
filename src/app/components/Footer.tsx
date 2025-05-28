@@ -34,7 +34,7 @@ export default function Header() {
 
         {/* Bloc droit : mentions légales */}
         <div style={{ flex: '1 1 200px', textAlign: 'right' }}>
-            <a href="/mentions-legales" style={{ color: '#f0f0f0', textDecoration: 'none' }}>Mentions légales</a>
+            <a href="/mentions-legales/page" style={{ color: '#f0f0f0', textDecoration: 'none' }}>Mentions légales</a>
         </div>
     </div>
 
