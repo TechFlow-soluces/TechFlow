@@ -20,11 +20,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="fr" className={agdasima.variable}>
         <head>
-            {/* Script CookieYes */}
+            {/* ✅ Script CookieYes - chargé AVANT l'interactivité */}
             <Script
                 id="cookieyes"
-                strategy="afterInteractive"
-                src="https://cdn-cookieyes.com/client_data/b26c5644420039c3c7666f6f/script.js"
+                strategy="beforeInteractive"
+                src="https://cdn-cookieyes.com/client_data/b26c5644420039c3c7666f6f/banner.js"
             />
         </head>
         <body>
@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Footer />
 
-        {/* Google Analytics 4 - chargement conditionnel selon CookieYes */}
+        {/* ✅ Google Analytics 4 conditionnel selon consentement */}
         <Script id="ga4-conditional" strategy="afterInteractive">
             {`
                         (function() {
@@ -42,11 +42,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                     typeof CookieConsent.getUserPreferences === 'function'
                                 ) {
                                     const consent = CookieConsent.getUserPreferences();
+                                    console.log("Consent :", consent);
+
                                     if (
                                         consent &&
                                         consent.categories &&
                                         consent.categories.includes('analytics')
                                     ) {
+                                        console.log("✅ Consentement Analytics OK");
                                         var gaScript = document.createElement('script');
                                         gaScript.setAttribute('async', '');
                                         gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-V9V21NN065';
@@ -57,7 +60,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                             function gtag(){dataLayer.push(arguments);}
                                             gtag('js', new Date());
                                             gtag('config', 'G-V9V21NN065');
+                                            console.log("✅ Google Analytics chargé");
                                         };
+                                    } else {
+                                        console.log("❌ Pas de consentement pour Analytics");
                                     }
                                 }
                             }
