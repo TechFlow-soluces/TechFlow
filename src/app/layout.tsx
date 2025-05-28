@@ -24,78 +24,57 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Footer />
 
-        {/* TarteAuCitron */}
+        {/* TarteAuCitron loader */}
         <Script
             src="https://tarteaucitron.io/load.js?domain=techflowsoluces.fr&uuid=2343bbf5741c55fb9d50f968674e4112009dd854"
             strategy="afterInteractive"
         />
 
-        {/* Initialisation + ajout Google Analytics dans TarteAuCitron */}
+        {/* Initialisation de TarteAuCitron */}
         <Script id="tarteaucitron-init" strategy="afterInteractive">
             {`
-                tarteaucitron.init({
-                    privacyUrl: "/mentions-legales", // Lien vers ta politique de confidentialité
-                    hashtag: "#tarteaucitron",
-                    cookieName: "tarteaucitron",
-                    orientation: "bottom",
-                    showAlertSmall: true,
-                    cookieslist: true,
-                    adblocker: false,
-                    AcceptAllCta: true,
-                    highPrivacy: true,
-                    handleBrowserDNTRequest: false,
-                    removeCredit: true,
-                    moreInfoLink: true,
-                    useExternalCss: false,
-                    readmoreLink: "/mentions-legales"
-                });
-
-                tarteaucitron.services.googleanalytics = {
-                    "key": "googleanalytics",
-                    "type": "analytic",
-                    "name": "Google Analytics",
-                    "needConsent": true,
-                    "cookies": ['_ga', '_gat', '_gid'],
-                    "js": function () {
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'G-XXXXXXXXXX'); // <-- ton ID GA ici
-
-                        tarteaucitron.addScript('https://www.googletagmanager.com/gtag/js?id=G-V9V21NN065', '', function () {});
-                    },
-                    "fallback": function () {
-                        // Optionnel : contenu si GA est refusé
-                        console.log("Google Analytics bloqué.");
-                    }
-                };
-            `}
+                        tarteaucitron.init({
+                            privacyUrl: "/mentions-legales",
+                            hashtag: "#tarteaucitron",
+                            cookieName: "tarteaucitron",
+                            orientation: "bottom",
+                            showAlertSmall: true,
+                            cookieslist: true,
+                            adblocker: false,
+                            AcceptAllCta: true,
+                            highPrivacy: true,
+                            handleBrowserDNTRequest: false,
+                            removeCredit: true,
+                            moreInfoLink: true,
+                            useExternalCss: false,
+                            readmoreLink: "/mentions-legales"
+                        });
+                    `}
         </Script>
 
-        {/* Bouton "Gérer mes cookies" */}
+        {/* Bouton flottant "Gérer mes cookies" */}
         <Script id="tarteaucitron-openpanel" strategy="afterInteractive">
             {`
-                window.addEventListener('DOMContentLoaded', function() {
-                    const manageCookiesBtn = document.createElement('button');
-                    manageCookiesBtn.innerText = 'Gérer mes cookies';
-                    manageCookiesBtn.style.position = 'fixed';
-                    manageCookiesBtn.style.bottom = '20px';
-                    manageCookiesBtn.style.right = '20px';
-                    manageCookiesBtn.style.zIndex = '9999';
-                    manageCookiesBtn.style.padding = '10px';
-                    manageCookiesBtn.style.backgroundColor = '#333';
-                    manageCookiesBtn.style.color = '#fff';
-                    manageCookiesBtn.style.border = 'none';
-                    manageCookiesBtn.style.borderRadius = '5px';
-                    manageCookiesBtn.style.cursor = 'pointer';
-                    manageCookiesBtn.onclick = () => {
-                        window.tarteaucitron.userInterface.openPanel();
-                    };
-                    document.body.appendChild(manageCookiesBtn);
-                });
-            `}
+                        window.addEventListener('DOMContentLoaded', function() {
+                            const manageCookiesBtn = document.createElement('button');
+                            manageCookiesBtn.innerText = 'Gérer mes cookies';
+                            manageCookiesBtn.style.position = 'fixed';
+                            manageCookiesBtn.style.bottom = '20px';
+                            manageCookiesBtn.style.right = '20px';
+                            manageCookiesBtn.style.zIndex = '9999';
+                            manageCookiesBtn.style.padding = '10px';
+                            manageCookiesBtn.style.backgroundColor = '#333';
+                            manageCookiesBtn.style.color = '#fff';
+                            manageCookiesBtn.style.border = 'none';
+                            manageCookiesBtn.style.borderRadius = '5px';
+                            manageCookiesBtn.style.cursor = 'pointer';
+                            manageCookiesBtn.onclick = () => {
+                                window.tarteaucitron.userInterface.openPanel();
+                            };
+                            document.body.appendChild(manageCookiesBtn);
+                        });
+                    `}
         </Script>
-
         </body>
         </html>
     );
