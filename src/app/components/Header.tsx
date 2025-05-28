@@ -22,7 +22,7 @@ export default function Header() {
                 <button onClick={() => scrollToSection('home')}>Accueil</button>
                 <button onClick={() => scrollToSection('services')}>Nos services</button>
                 <button onClick={() => scrollToSection('projects')}>Nos réalisations</button>
-                <button onClick={() => scrollToSection('contact')}>Contact</button>
+                <button onClick={() => scrollToSection('contact')}>Nous contacter</button>
             </nav>
         </header>
     );
