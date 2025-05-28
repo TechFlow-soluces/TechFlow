@@ -20,11 +20,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="fr" className={agdasima.variable}>
         <head>
-            {/* ✅ Script CookieYes - chargé AVANT l'interactivité */}
+            {/* ✅ Revenir au script CookieYes complet */}
             <Script
                 id="cookieyes"
                 strategy="beforeInteractive"
-                src="https://cdn-cookieyes.com/client_data/b26c5644420039c3c7666f6f/banner.js"
+                src="https://cdn-cookieyes.com/client_data/b26c5644420039c3c7666f6f/script.js"
             />
         </head>
         <body>
@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Footer />
 
-        {/* ✅ Google Analytics 4 conditionnel selon consentement */}
+        {/* ✅ Google Analytics 4 conditionnel */}
         <Script id="ga4-conditional" strategy="afterInteractive">
             {`
                         (function() {
@@ -65,6 +65,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                     } else {
                                         console.log("❌ Pas de consentement pour Analytics");
                                     }
+                                } else {
+                                    console.log("⚠️ CookieConsent non défini");
                                 }
                             }
 
