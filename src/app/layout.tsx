@@ -19,19 +19,46 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="fr" className={agdasima.variable}>
         <head>
-            {/* Script TarteAuCitron immédiatement après l'ouverture du head */}
+            {/* Script TarteAuCitron */}
             <script
                 src="https://tarteaucitron.io/load.js?domain=techflowsoluces.fr&uuid=2343bbf5741c55fb9d50f968674e4112009dd854"
                 type="text/javascript"
                 async
             ></script>
+
+            {/* Initialisation TarteAuCitron */}
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                            window.addEventListener("tarteaucitron-loaded", function () {
+                                tarteaucitron.init({
+                                    privacyUrl: "/mentions-legales",
+                                    hashtag: "#tarteaucitron",
+                                    cookieName: "tarteaucitron",
+                                    orientation: "bottom",
+                                    showAlertSmall: true,
+                                    cookieslist: true,
+                                    adblocker: false,
+                                    AcceptAllCta: true,
+                                    highPrivacy: true,
+                                    handleBrowserDNTRequest: false,
+                                    removeCredit: true,
+                                    moreInfoLink: true,
+                                    useExternalCss: false,
+                                    readmoreLink: "/mentions-legales"
+                                });
+                            });
+                        `,
+                }}
+            />
         </head>
+
         <body>
         <Header />
         {children}
         <Footer />
 
-        {/* Bouton flottant pour rouvrir les cookies */}
+        {/* Bouton "Gérer mes cookies" */}
         <script
             dangerouslySetInnerHTML={{
                 __html: `
