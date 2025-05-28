@@ -24,7 +24,7 @@ export default function Header() {
 
         {/* Bloc centre : navigation */}
         <div style={{ flex: '1 1 200px' }}>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <ul style={{ listStyle: 'none', textAlign: 'center', padding: 0, margin: 0 }}>
                 <li><a href="#home" style={{ color: '#f0f0f0', textDecoration: 'none' }}>Accueil</a></li>
                 <li><a href="#services" style={{ color: '#f0f0f0', textDecoration: 'none' }}>Nos services</a></li>
                 <li><a href="#projects" style={{ color: '#f0f0f0', textDecoration: 'none' }}>Nos réalisations</a></li>
@@ -42,12 +42,11 @@ export default function Header() {
 
     <div style={{
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         flexWrap: 'wrap',
         fontSize: '0.85rem',
     }}>
-        <a href="#" style={{ color: '#f0f0f0', textDecoration: 'underline' }}>Cliquez-ici pour modifier vos préférences en matière de cookies</a>
-        <p style={{ margin: 0 }}>© {new Date().getFullYear()} TechFlow – Tous droits réservés</p>
+        <p style={{ margin: 0}}>© {new Date().getFullYear()} TechFlow – Tous droits réservés</p>
     </div>
 </footer>
     );
