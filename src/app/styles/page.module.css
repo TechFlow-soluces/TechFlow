@@ -175,3 +175,85 @@ a.secondary {
 .sous_titre {
   margin-left : 8rem;
 }
+
+.sectionProcess {
+  padding: 6rem 2rem;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #013818;
+  margin-bottom: 4rem;
+  text-align: left;
+}
+
+.step {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.imageWrapper {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+}
+
+.projectImage {
+  width: 500px;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.textBlock {
+  flex: 1 1 50%;
+  background-color: rgba(120, 154, 140, 0.55);
+  padding: 2rem;
+  border-radius: 16px;
+  color: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #013818;
+  margin-bottom: 1rem;
+}
+
+.textBlock p {
+  color: #1a1a1a;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .projectImage {
+    width: 250px;
+  }
+
+  .step {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .textBlock,
+  .imageWrapper {
+    flex: 1 1 100%;
+  }
+}

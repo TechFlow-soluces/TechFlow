@@ -123,10 +123,13 @@ export default function Home() {
                         Nos services
                     </h2>
 
-                    <div style={{
+                    <div
+                        className="servicesGridResponsive"
+                        style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                         gap: '2rem',
+                        justifyItems: 'center',
                     }}>
                         {/* Bloc Service 1 */}
                         <div style={{
@@ -179,189 +182,87 @@ export default function Home() {
                 </div>
             </section>
 
-            <section id="process" style={{ padding: '6rem 2rem', backgroundColor: '#fff' }}>
-                <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <h2 style={{
-                        fontSize: '2.8rem',
-                        fontWeight: 600,
-                        color: '#013818',
-                        marginBottom: '4rem',
-                        textAlign: 'left'
-                    }}>
-                        Déroulement d’un projet
-                    </h2>
+            <section id="process" className={styles.sectionProcess}>
+                <div className={styles.container}>
+                    <h2 className={styles.title}>Déroulement d’un projet</h2>
 
-                    {/* Bloc 1 */}
-                    <div style={{ display: 'flex', gap: '4rem', alignItems: 'center', marginBottom: '6rem' }}>
-                        <div style={{ flex: '1 1 50%' }}>
-                            <div style={{ width: '100%', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Image
-                                    src={definition_besoin}
-                                    alt="Définir vos besoins"
-                                    style={{ maxHeight: '100%', width: 'auto', objectFit: 'contain' }}
-                                    width={500}
-                                    height={500}
-                                />
-                            </div>
+                    {/* Étapes */}
+                    <div className={styles.step}>
+                        <div className={styles.imageWrapper}>
+                            <Image
+                                src={definition_besoin}
+                                alt="Définir vos besoins"
+                                className={styles.projectImage}
+                            />
                         </div>
-                        <div style={{
-                            flex: '1 1 50%',
-                            backgroundColor: 'rgba(120,154,140,0.55)',
-                            padding: '2rem',
-                            borderRadius: '16px',
-                            color: '#f0f0f0',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                        }}>
-                            <h3 style={{ fontSize: '1.8rem', fontWeight: 600, color: '#013818' }}>Définir vos besoins</h3>
-                            <p style={{
-                                color: '#1a1a1a',
-                                fontSize: '1.1rem',
-                            }}>
-                                Avant de commencer tout développement, nous organisons un rendez-vous pour échanger sur votre activité, vos objectifs, vos attentes et vos contraintes.<br /><br />
+                        <div className={styles.textBlock}>
+                            <h3 className={styles.subtitle}>Définir vos besoins</h3>
+                            <p>
+                                Avant de commencer tout développement, nous organisons un rendez-vous pour
+                                échanger sur votre activité, vos objectifs, vos attentes et vos contraintes.<br /><br />
                                 Cette étape est essentielle pour bien cerner votre projet. Elle nous permet de poser les bases d’une solution pertinente et sur-mesure.<br /><br />
-                                À l’issue de cet échange, nous rédigeons un cahier des charges clair et structuré, qui servira de fil conducteur tout au long du projet.</p>
+                                À l’issue de cet échange, nous rédigeons un cahier des charges clair et structuré, qui servira de fil conducteur tout au long du projet.
+                            </p>
                         </div>
                     </div>
 
-                    {/* Bloc 2 */}
-                    <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '4rem', alignItems: 'center', marginBottom: '6rem' }}>
-                        <div style={{ flex: '1 1 50%' }}>
-                            <div style={{ width: '100%', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Image
-                                    src={developpement}
-                                    alt="Développement"
-                                    style={{ maxHeight: '100%', width: 'auto', objectFit: 'contain' }}
-                                    width={500}
-                                    height={500}
-                                />
-                            </div>
+                    <div className={`${styles.step} ${styles.reverse}`}>
+                        <div className={styles.imageWrapper}>
+                            <Image src={developpement} alt="Développement" className={styles.projectImage} />
                         </div>
-                        <div style={{
-                            flex: '1 1 50%',
-                            backgroundColor: 'rgba(120,154,140,0.55)',
-                            padding: '2rem',
-                            borderRadius: '16px',
-                            color: '#f0f0f0',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                        }}>
-                            <h3 style={{ fontSize: '1.8rem', fontWeight: 600, color: '#013818' }}>Développement</h3>
-                            <p style={{
-                                color: '#1a1a1a',
-                                fontSize: '1.1rem',
-                            }}>
+                        <div className={styles.textBlock}>
+                            <h3 className={styles.subtitle}>Développement</h3>
+                            <p>
                                 Une fois le périmètre du projet bien défini, nous lançons la phase de développement afin de traduire votre cahier des charges en une solution fonctionnelle : site web, application ou logiciel.<br /><br />
-                                Selon vos besoins, nous utilisons des technologies modernes, adaptées, performantes et évolutives.<br /> Le développement se fait de manière itérative, avec plusieurs versions livrées au fil de l’avancement.<br />
-
-                                Cette méthode permet de tester régulièrement les fonctionnalités, d’ajuster les détails en cours de route, et d’éviter toute mauvaise surprise à la fin.
-
-                                <br /><br /> Les maquettes validées sont intégrées au fur et à mesure, et vous restez en contact permanent avec notre équipe. <br />Le cahier des charges peut ainsi évoluer naturellement en fonction des retours et besoins réels.</p>
+                                Selon vos besoins, nous utilisons des technologies modernes, adaptées, performantes et évolutives.<br />
+                                Le développement se fait de manière itérative, avec plusieurs versions livrées au fil de l’avancement.<br /><br />
+                                Cette méthode permet de tester régulièrement les fonctionnalités, d’ajuster les détails en cours de route, et d’éviter toute mauvaise surprise à la fin.<br /><br />
+                                Les maquettes validées sont intégrées au fur et à mesure, et vous restez en contact permanent avec notre équipe.
+                            </p>
                         </div>
                     </div>
 
-                    {/* Bloc 3 */}
-                    <div style={{ display: 'flex', gap: '4rem', alignItems: 'center', marginBottom: '6rem' }}>
-                        <div style={{ flex: '1 1 50%' }}>
-                            <div style={{ width: '100%', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Image
-                                    src={livraison_projet}
-                                    alt="Livraison"
-                                    style={{ maxHeight: '100%', width: 'auto', objectFit: 'contain' }}
-                                    width={500}
-                                    height={500}
-                                />
-                            </div>
+                    <div className={styles.step}>
+                        <div className={styles.imageWrapper}>
+                            <Image src={livraison_projet} alt="Livraison" className={styles.projectImage} />
                         </div>
-                        <div style={{
-                            flex: '1 1 50%',
-                            backgroundColor: 'rgba(120,154,140,0.55)',
-                            padding: '2rem',
-                            borderRadius: '16px',
-                            color: '#f0f0f0',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                        }}>
-                            <h3 style={{ fontSize: '1.8rem', fontWeight: 600, color: '#013818' }}>Livraison du projet</h3>
-                            <p style={{
-                                color: '#1a1a1a',
-                                fontSize: '1.1rem',
-                            }}>
+                        <div className={styles.textBlock}>
+                            <h3 className={styles.subtitle}>Livraison du projet</h3>
+                            <p>
                                 Une fois le développement terminé, nous procédons à la livraison complète de votre projet, prêt à être mis en ligne.<br /><br />
                                 Deux possibilités s’offrent à vous :<br />
                                 – Vous souhaitez gérer l’hébergement vous-même : nous vous fournissons l’ensemble des fichiers du projet et la base de données, accompagnés d’instructions de mise en ligne.<br />
-                                – Vous préférez que nous nous en chargions : nous assurons la mise en ligne et la configuration de votre site sur une plateforme d’hébergement choisie ensemble.
-
-                                <br /><br />Dans les deux cas, nous nous assurons que tout fonctionne correctement avant validation finale. Vous êtes ainsi prêt à utiliser votre site ou application en toute confiance.</p>
+                                – Vous préférez que nous nous en chargions : nous assurons la mise en ligne et la configuration sur une plateforme d’hébergement choisie ensemble.<br /><br />
+                                Dans les deux cas, nous nous assurons que tout fonctionne correctement avant validation finale.
+                            </p>
                         </div>
                     </div>
 
-                    {/* Bloc 4 */}
-                    <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: '4rem', alignItems: 'center', marginBottom: '6rem' }}>
-                        <div style={{ flex: '1 1 50%' }}>
-                            <div style={{ width: '100%', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Image
-                                    src={SEO}
-                                    alt="Référencement SEO"
-                                    style={{ maxHeight: '100%', width: 'auto', objectFit: 'contain' }}
-                                    width={500}
-                                    height={500}
-                                />
-                            </div>
+                    <div className={`${styles.step} ${styles.reverse}`}>
+                        <div className={styles.imageWrapper}>
+                            <Image src={SEO} alt="SEO" className={styles.projectImage} />
                         </div>
-                        <div style={{
-                            flex: '1 1 50%',
-                            backgroundColor: 'rgba(120,154,140,0.55)',
-                            padding: '2rem',
-                            borderRadius: '16px',
-                            color: '#f0f0f0',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                        }}>
-                            <h3 style={{ fontSize: '1.8rem', fontWeight: 600, color: '#013818' }}>Référencement SEO</h3>
-                            <p style={{
-                                color: '#1a1a1a',
-                                fontSize: '1.1rem',
-                            }}>
-                                Si votre site a pour but de vendre, générer des contacts ou présenter votre activité, alors le référencement naturel (SEO) est un levier indispensable pour améliorer sa visibilité.
-                                <br />
-                                L’objectif du SEO est simple : faire apparaître votre site dans les premiers résultats Google sur des mots-clés stratégiques pour votre activité.<br /><br />
-
-                                Pour cela, nous travaillons sur deux axes complémentaires :<br />
-                                – Le SEO on-site : optimisation technique et structurelle de vos pages (responsive design, accessibilité, hiérarchie des contenus…).<br />
-                                – Le SEO off-site (netlinking) : acquisition de liens entrants de qualité depuis d’autres sites pour renforcer la crédibilité de votre contenu.<br /><br />
-
-                                Nous pouvons vous accompagner dans la mise en place d’une stratégie SEO adaptée, afin d’augmenter durablement votre visibilité et générer un trafic qualifié.</p>
+                        <div className={styles.textBlock}>
+                            <h3 className={styles.subtitle}>Référencement SEO</h3>
+                            <p>
+                                Le référencement naturel est un levier indispensable pour améliorer la visibilité de votre site.<br /><br />
+                                SEO on-site : optimisation technique et structurelle (responsive, accessibilité…)<br />
+                                SEO off-site : acquisition de liens entrants de qualité (netlinking)<br /><br />
+                                Nous vous accompagnons dans une stratégie sur-mesure pour un trafic qualifié.
+                            </p>
                         </div>
                     </div>
 
-                    {/* Bloc 5 */}
-                    <div style={{ display: 'flex', gap: '4rem', alignItems: 'center' }}>
-                        <div style={{ flex: '1 1 50%' }}>
-                            <div style={{ width: '100%', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Image
-                                    src={maintenance}
-                                    alt="Maintenance & évolution"
-                                    style={{ maxHeight: '100%', width: 'auto', objectFit: 'contain' }}
-                                    width={500}
-                                    height={500}
-                                />
-                            </div>
+                    <div className={styles.step}>
+                        <div className={styles.imageWrapper}>
+                            <Image src={maintenance} alt="Maintenance" className={styles.projectImage} />
                         </div>
-                        <div style={{
-                            flex: '1 1 50%',
-                            backgroundColor: 'rgba(120,154,140,0.55)',
-                            padding: '2rem',
-                            borderRadius: '16px',
-                            color: '#f0f0f0',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                        }}>
-                            <h3 style={{ fontSize: '1.8rem', fontWeight: 600, color: '#013818' }}>Maintenance & évolution</h3>
-                            <p style={{
-                                color: '#1a1a1a',
-                                fontSize: '1.1rem',
-                            }}>
-                                Comme évoqué lors de la phase de développement, nous concevons votre projet avec une structure évolutive, afin de faciliter l’ajout de nouvelles fonctionnalités ou d’adaptations futures.
-                                <br />
-                                Une fois le projet en ligne, notre équipe reste à votre disposition pour toute demande de mise à jour, de correctif ou d’évolution fonctionnelle.
-                                <br />
-                                Cette souplesse vous permet de faire évoluer votre site ou application dans le temps, en fonction de vos nouveaux besoins, sans avoir à tout reconstruire.</p>
+                        <div className={styles.textBlock}>
+                            <h3 className={styles.subtitle}>Maintenance & évolution</h3>
+                            <p>
+                                Une fois le projet en ligne, notre équipe reste à votre disposition pour toute évolution, mise à jour ou correctif.<br /><br />
+                                Nous conçevons votre site de manière évolutive pour s’adapter à vos besoins futurs sans tout reconstruire.
+                            </p>
                         </div>
                     </div>
                 </div>

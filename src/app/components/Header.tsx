@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 import Image from 'next/image';
 import logo from '../assets/img/logo.png';
@@ -14,8 +15,10 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.logoContainer}>
-                <Image src={logo} alt="Logo TechFlow" width={32} height={32} />
-                <span className={styles.logoText}>TECHFLOW</span>
+                <Link href="/#home" scroll={false} className={styles.logoLink}>
+                    <Image src={logo} alt="Logo TechFlow" width={32} height={32} />
+                    <span className={styles.logoText}>TECHFLOW</span>
+                </Link>
             </div>
             <div className={styles.separator}>|</div>
             <nav className={styles.nav}>
