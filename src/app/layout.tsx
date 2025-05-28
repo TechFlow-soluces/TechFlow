@@ -19,70 +19,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="fr" className={agdasima.variable}>
         <head>
-            {/* Script TarteAuCitron */}
+            {/* Script CookieYes */}
+            {/* Start cookieyes banner */}
             <script
-                src="https://tarteaucitron.io/load.js?domain=techflowsoluces.fr&uuid=2343bbf5741c55fb9d50f968674e4112009dd854"
+                id="cookieyes"
                 type="text/javascript"
-                async
+                src="https://cdn-cookieyes.com/client_data/b26c5644420039c3c7666f6f/script.js"
             ></script>
-
-            {/* Initialisation TarteAuCitron */}
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: `
-                            window.addEventListener("tarteaucitron-loaded", function () {
-                                tarteaucitron.init({
-                                    privacyUrl: "/mentions-legales",
-                                    hashtag: "#tarteaucitron",
-                                    cookieName: "tarteaucitron",
-                                    orientation: "bottom",
-                                    showAlertSmall: true,
-                                    cookieslist: true,
-                                    adblocker: false,
-                                    AcceptAllCta: true,
-                                    highPrivacy: true,
-                                    handleBrowserDNTRequest: false,
-                                    removeCredit: true,
-                                    moreInfoLink: true,
-                                    useExternalCss: false,
-                                    readmoreLink: "/mentions-legales"
-                                });
-                            });
-                        `,
-                }}
-            />
+            {/* End cookieyes banner */}
         </head>
-
         <body>
         <Header />
         {children}
         <Footer />
-
-        {/* Bouton "Gérer mes cookies" */}
-        <script
-            dangerouslySetInnerHTML={{
-                __html: `
-                            window.addEventListener('DOMContentLoaded', function() {
-                                const manageCookiesBtn = document.createElement('button');
-                                manageCookiesBtn.innerText = 'Gérer mes cookies';
-                                manageCookiesBtn.style.position = 'fixed';
-                                manageCookiesBtn.style.bottom = '20px';
-                                manageCookiesBtn.style.right = '20px';
-                                manageCookiesBtn.style.zIndex = '9999';
-                                manageCookiesBtn.style.padding = '10px';
-                                manageCookiesBtn.style.backgroundColor = '#333';
-                                manageCookiesBtn.style.color = '#fff';
-                                manageCookiesBtn.style.border = 'none';
-                                manageCookiesBtn.style.borderRadius = '5px';
-                                manageCookiesBtn.style.cursor = 'pointer';
-                                manageCookiesBtn.onclick = () => {
-                                    window.tarteaucitron.userInterface.openPanel();
-                                };
-                                document.body.appendChild(manageCookiesBtn);
-                            });
-                        `,
-            }}
-        />
         </body>
         </html>
     );
