@@ -42,7 +42,7 @@ export default function Home() {
                 const data = await res.json()
                 setError(data?.error || 'Une erreur est survenue.')
             }
-        } catch (err) {
+        } catch {
             setError('Erreur réseau, veuillez réessayer plus tard.')
         }
     }
