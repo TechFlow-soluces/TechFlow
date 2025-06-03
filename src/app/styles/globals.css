@@ -24,11 +24,13 @@ font-family: var(--font-main), sans-serif;
 }
 
 
-section {
-  width: 100%;
-}
-
 h1, h2, h3, p {
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 500px) {
+  section {
+    width: 100%;
+  }
 }
