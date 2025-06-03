@@ -22,3 +22,13 @@ font-family: var(--font-main), sans-serif;
   background-size: cover;
   color: #1a1a1a;
 }
+
+
+section {
+  width: 100%;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
