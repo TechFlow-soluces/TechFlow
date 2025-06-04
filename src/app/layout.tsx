@@ -15,6 +15,7 @@ const agdasima = Agdasima({
 export const metadata = {
     title: "TechFlow - Agence web",
     description: "Solutions digitales sur mesure, création de sites web modernes et performants.",
+    metadataBase: new URL("https://techflowsoluces.fr"),
     openGraph: {
         title: "TechFlow - Agence web",
         description: "Solutions digitales sur mesure, création de sites web modernes et performants.",
