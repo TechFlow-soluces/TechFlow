@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: center;
     padding: 1rem 2rem;
+
 }
 
 .logoContainer {
@@ -57,4 +58,61 @@
     color: #00a36c;
     font-weight: bold;
     border-bottom: 2px solid #00a36c;
+}
+
+.burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* Responsive sous 600px */
+@media (max-width: 600px) {
+    .burger {
+        display: block;
+        margin-left: auto;
+    }
+
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.76);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 0.5rem 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+        z-index: 50;
+        backdrop-filter: blur(5px);
+    }
+
+    .nav.open {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .nav button {
+        width: 100%;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        background: none;
+        color: white;
+    }
+
+    .nav button:last-child {
+        border-bottom: none;
+    }
+
+    .separator {
+        display: none;
+    }
 }
