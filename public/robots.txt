@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
+# Host
+Host: https://techflowsoluces.fr
+
+# Sitemaps
 Sitemap: https://techflowsoluces.fr/sitemap.xml
