@@ -14,6 +14,22 @@ const agdasima = Agdasima({
 export const metadata = {
     title: "TechFlow - Agence web",
     description: "Solutions digitales sur mesure, création de sites web modernes et performants.",
+    openGraph: {
+        title: "TechFlow - Agence web",
+        description: "Solutions digitales sur mesure, création de sites web modernes et performants.",
+        url: "https://techflowsoluces.fr",
+        siteName: "TechFlow",
+        images: [
+            {
+                url: "/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "TechFlow - Agence web",
+            },
+        ],
+        locale: "fr_FR",
+        type: "website",
+    },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
