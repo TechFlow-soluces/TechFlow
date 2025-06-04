@@ -8,6 +8,7 @@ import Script from 'next/script';
 const agdasima = Agdasima({
     weight: '400',
     subsets: ['latin'],
+    display: 'swap',
     variable: '--font-agdasima',
 });
 

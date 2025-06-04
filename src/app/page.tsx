@@ -60,7 +60,14 @@ export default function Home() {
                     Développement de sites web, applications personnalisées, logiciels & gestion des réseaux sociaux
                     pour booster votre présence en ligne.
                 </p>
-                <Image src={img_accueil} alt="Accueil" className={styles.imgAccueil} />
+                <Image
+                    src={img_accueil}
+                    alt="Accueil"
+                    className={styles.imgAccueil}
+                    width={800}
+                    height={500}
+                    priority
+                />
             </section>
 
             <section id="services" className={styles.servicesSection}>
@@ -68,17 +75,17 @@ export default function Home() {
                     <h2 className={styles.servicesTitle}>Nos services</h2>
                     <div className={styles.servicesGrid}>
                         <div className={styles.card}>
-                            <Image src={dev_web} alt="Web" className={styles.cardImg} />
+                            <Image src={dev_web} alt="Web" className={styles.cardImg} width={400} height={300} />
                             <h3>Développement Web & Mobile</h3>
                             <p>Sites vitrines, e-commerce ou applications web/mobile modernes, responsives et optimisées SEO.</p>
                         </div>
                         <div className={styles.card}>
-                            <Image src={logiciel_metier} alt="Logiciel métier" className={styles.cardImg} />
+                            <Image src={logiciel_metier} alt="Logiciel métier" className={styles.cardImg} width={400} height={300} />
                             <h3>Développement de logiciels métiers</h3>
                             <p>CRM, ERP, outils de gestion ou automatisation… des logiciels conçus sur mesure pour votre activité.</p>
                         </div>
                         <div className={styles.card}>
-                            <Image src={social_media} alt="Réseaux sociaux" className={styles.cardImg} />
+                            <Image src={social_media} alt="Réseaux sociaux" className={styles.cardImg} width={400} height={300} />
                             <h3>Stratégie digitale & réseaux sociaux</h3>
                             <p>Gestion de contenu, animation de vos réseaux, croissance organique et planification stratégique.</p>
                         </div>
@@ -90,49 +97,38 @@ export default function Home() {
                 <div className={styles.container}>
                     <h2 className={styles.title}>Déroulement d’un projet</h2>
                     {[
-                        { img: definition_besoin, alt: 'Définir vos besoins', title: 'Définir vos besoins', reverse: false, text: `
-                            Avant de commencer tout développement, nous organisons un rendez-vous pour
-                            échanger sur votre activité, vos objectifs, vos attentes et vos contraintes.
+                        { img: definition_besoin, alt: 'Définir vos besoins', title: 'Définir vos besoins', reverse: false, text: `Avant de commencer tout développement, nous organisons un rendez-vous pour échanger sur votre activité, vos objectifs, vos attentes et vos contraintes.
 
-                            Cette étape est essentielle pour bien cerner votre projet. Elle nous permet de poser les bases d’une solution pertinente et sur-mesure.
+Cette étape est essentielle pour bien cerner votre projet. Elle nous permet de poser les bases d’une solution pertinente et sur-mesure.
 
-                            À l’issue de cet échange, nous rédigeons un cahier des charges clair et structuré, qui servira de fil conducteur tout au long du projet.
-                        ` },
-                        { img: developpement, alt: 'Développement', title: 'Développement', reverse: true, text: `
-                            Une fois le périmètre du projet bien défini, nous lançons la phase de développement afin de traduire votre cahier des charges en une solution fonctionnelle : site web, application ou logiciel.
+À l’issue de cet échange, nous rédigeons un cahier des charges clair et structuré, qui servira de fil conducteur tout au long du projet.` },
+                        { img: developpement, alt: 'Développement', title: 'Développement', reverse: true, text: `Une fois le périmètre du projet bien défini, nous lançons la phase de développement afin de traduire votre cahier des charges en une solution fonctionnelle : site web, application ou logiciel.
 
-                            Selon vos besoins, nous utilisons des technologies modernes, adaptées, performantes et évolutives.
+Selon vos besoins, nous utilisons des technologies modernes, adaptées, performantes et évolutives.
 
-                            Le développement se fait de manière itérative, avec plusieurs versions livrées au fil de l’avancement.
+Le développement se fait de manière itérative, avec plusieurs versions livrées au fil de l’avancement.
 
-                            Les maquettes validées sont intégrées au fur et à mesure, et vous restez en contact permanent avec notre équipe.
-                        ` },
-                        { img: livraison_projet, alt: 'Livraison', title: 'Livraison du projet', reverse: false, text: `
-                            Une fois le développement terminé, nous procédons à la livraison complète de votre projet, prêt à être mis en ligne.
+Les maquettes validées sont intégrées au fur et à mesure, et vous restez en contact permanent avec notre équipe.` },
+                        { img: livraison_projet, alt: 'Livraison', title: 'Livraison du projet', reverse: false, text: `Une fois le développement terminé, nous procédons à la livraison complète de votre projet, prêt à être mis en ligne.
 
-                            Deux possibilités :
-                            – Vous gérez l’hébergement vous-même : nous vous fournissons les fichiers + base de données.
-                            – Nous nous en chargeons : nous assurons la mise en ligne et la configuration.
+Deux possibilités :
+– Vous gérez l’hébergement vous-même : nous vous fournissons les fichiers + base de données.
+– Nous nous en chargeons : nous assurons la mise en ligne et la configuration.
 
-                            Dans tous les cas, nous vérifions que tout fonctionne avant validation finale.
-                        ` },
-                        { img: SEO, alt: 'SEO', title: 'Référencement SEO', reverse: true, text: `
-                            Le référencement naturel est un levier indispensable pour améliorer la visibilité de votre site.
+Dans tous les cas, nous vérifions que tout fonctionne avant validation finale.` },
+                        { img: SEO, alt: 'SEO', title: 'Référencement SEO', reverse: true, text: `Le référencement naturel est un levier indispensable pour améliorer la visibilité de votre site.
 
-                            SEO on-site : technique, responsive, accessibilité
-                            SEO off-site : netlinking
+SEO on-site : technique, responsive, accessibilité
+SEO off-site : netlinking
 
-                            Nous vous accompagnons avec une stratégie sur mesure pour un trafic qualifié.
-                        ` },
-                        { img: maintenance, alt: 'Maintenance', title: 'Maintenance & évolution', reverse: false, text: `
-                            Une fois le projet en ligne, notre équipe reste à votre disposition pour toute évolution, mise à jour ou correctif.
+Nous vous accompagnons avec une stratégie sur mesure pour un trafic qualifié.` },
+                        { img: maintenance, alt: 'Maintenance', title: 'Maintenance & évolution', reverse: false, text: `Une fois le projet en ligne, notre équipe reste à votre disposition pour toute évolution, mise à jour ou correctif.
 
-                            Nous concevons votre site de manière évolutive pour s’adapter à vos besoins futurs sans tout reconstruire.
-                        ` },
+Nous concevons votre site de manière évolutive pour s’adapter à vos besoins futurs sans tout reconstruire.` },
                     ].map(({ img, alt, title, text, reverse }, index) => (
                         <div key={index} className={`${styles.step} ${reverse ? styles.reverse : ''}`}>
                             <div className={styles.imageWrapper}>
-                                <Image src={img} alt={alt} className={styles.projectImage} />
+                                <Image src={img} alt={alt} className={styles.projectImage} width={500} height={400} />
                             </div>
                             <div className={styles.textBlock}>
                                 <h3 className={styles.subtitle}>{title}</h3>
