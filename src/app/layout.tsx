@@ -2,6 +2,7 @@ import "./styles/globals.css";
 import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import LocalBusinessJsonLd from "./components/LocalBusinessJsonLd";
 import { Agdasima } from 'next/font/google';
 import Script from 'next/script';
 
@@ -13,12 +14,12 @@ const agdasima = Agdasima({
 });
 
 export const metadata = {
-    title: "TechFlow - Agence web",
-    description: "Solutions digitales sur mesure, création de sites web modernes et performants.",
+    title: "TechFlow - Agence web Castres & Mazamet",
+    description: "Agence web à Castres et Mazamet. Création de sites internet modernes, référencement SEO et solutions digitales sur mesure dans le Tarn.",
     metadataBase: new URL("https://techflowsoluces.fr"),
     openGraph: {
-        title: "TechFlow - Agence web",
-        description: "Solutions digitales sur mesure, création de sites web modernes et performants.",
+        title: "TechFlow - Agence web Castres & Mazamet",
+        description: "Agence web à Castres et Mazamet. Création de sites internet modernes, référencement SEO et solutions digitales sur mesure dans le Tarn.",
         url: "https://techflowsoluces.fr",
         siteName: "TechFlow",
         images: [
@@ -37,22 +38,23 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="fr" className={agdasima.variable}>
-        <head>
-            {/* ✅ CookieYes Script */}
-            <Script
-                id="cookieyes"
-                strategy="beforeInteractive"
-                src="https://cdn-cookieyes.com/client_data/b26c5644420039c3c7666f6f/script.js"
-            />
+            <head>
+                {/* ✅ CookieYes Script */}
+                <Script
+                    id="cookieyes"
+                    strategy="beforeInteractive"
+                    src="https://cdn-cookieyes.com/client_data/b26c5644420039c3c7666f6f/script.js"
+                />
 
-            {/* ✅ Favicon */}
-            <link rel="icon" href="/favicon.ico" />
-        </head>
-        <body>
-        <Header />
-        {children}
-        <Footer />
-        </body>
+                {/* ✅ Favicon */}
+                <link rel="icon" href="/favicon.ico" />
+            </head>
+            <body className={agdasima.className}>
+                <LocalBusinessJsonLd />
+                <Header />
+                {children}
+                <Footer />
+            </body>
         </html>
     );
 }

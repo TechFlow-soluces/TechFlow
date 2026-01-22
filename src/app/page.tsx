@@ -3,6 +3,9 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import styles from '@/app/styles/page.module.css'
+import { projects } from '@/app/data/projects'
+import Link from 'next/link'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 
 import img_accueil from '@/app/assets/img/img_accueil.png'
 import dev_web from '@/app/assets/img/dev_web.svg'
@@ -97,32 +100,37 @@ export default function Home() {
                 <div className={styles.container}>
                     <h2 className={styles.title}>Déroulement d’un projet</h2>
                     {[
-                        { img: definition_besoin, alt: 'Définir vos besoins', title: 'Définir vos besoins', reverse: false, text: `Avant de commencer tout développement, nous organisons un rendez-vous pour échanger sur votre activité, vos objectifs, vos attentes et vos contraintes.
+                        {
+                            img: definition_besoin, alt: 'Définir vos besoins', title: 'Définir vos besoins', reverse: false, text: `Avant de commencer tout développement, nous organisons un rendez-vous pour échanger sur votre activité, vos objectifs, vos attentes et vos contraintes.
 
 Cette étape est essentielle pour bien cerner votre projet. Elle nous permet de poser les bases d’une solution pertinente et sur-mesure.
 
 À l’issue de cet échange, nous rédigeons un cahier des charges clair et structuré, qui servira de fil conducteur tout au long du projet.` },
-                        { img: developpement, alt: 'Développement', title: 'Développement', reverse: true, text: `Une fois le périmètre du projet bien défini, nous lançons la phase de développement afin de traduire votre cahier des charges en une solution fonctionnelle : site web, application ou logiciel.
+                        {
+                            img: developpement, alt: 'Développement', title: 'Développement', reverse: true, text: `Une fois le périmètre du projet bien défini, nous lançons la phase de développement afin de traduire votre cahier des charges en une solution fonctionnelle : site web, application ou logiciel.
 
 Selon vos besoins, nous utilisons des technologies modernes, adaptées, performantes et évolutives.
 
 Le développement se fait de manière itérative, avec plusieurs versions livrées au fil de l’avancement.
 
 Les maquettes validées sont intégrées au fur et à mesure, et vous restez en contact permanent avec notre équipe.` },
-                        { img: livraison_projet, alt: 'Livraison', title: 'Livraison du projet', reverse: false, text: `Une fois le développement terminé, nous procédons à la livraison complète de votre projet, prêt à être mis en ligne.
+                        {
+                            img: livraison_projet, alt: 'Livraison', title: 'Livraison du projet', reverse: false, text: `Une fois le développement terminé, nous procédons à la livraison complète de votre projet, prêt à être mis en ligne.
 
 Deux possibilités :
 – Vous gérez l’hébergement vous-même : nous vous fournissons les fichiers + base de données.
 – Nous nous en chargeons : nous assurons la mise en ligne et la configuration.
 
 Dans tous les cas, nous vérifions que tout fonctionne avant validation finale.` },
-                        { img: SEO, alt: 'SEO', title: 'Référencement SEO', reverse: true, text: `Le référencement naturel est un levier indispensable pour améliorer la visibilité de votre site.
+                        {
+                            img: SEO, alt: 'SEO', title: 'Référencement SEO', reverse: true, text: `Le référencement naturel est un levier indispensable pour améliorer la visibilité de votre site.
 
 SEO on-site : technique, responsive, accessibilité
 SEO off-site : netlinking
 
 Nous vous accompagnons avec une stratégie sur mesure pour un trafic qualifié.` },
-                        { img: maintenance, alt: 'Maintenance', title: 'Maintenance & évolution', reverse: false, text: `Une fois le projet en ligne, notre équipe reste à votre disposition pour toute évolution, mise à jour ou correctif.
+                        {
+                            img: maintenance, alt: 'Maintenance', title: 'Maintenance & évolution', reverse: false, text: `Une fois le projet en ligne, notre équipe reste à votre disposition pour toute évolution, mise à jour ou correctif.
 
 Nous concevons votre site de manière évolutive pour s’adapter à vos besoins futurs sans tout reconstruire.` },
                     ].map(({ img, alt, title, text, reverse }, index) => (
@@ -142,8 +150,41 @@ Nous concevons votre site de manière évolutive pour s’adapter à vos besoins
             <section id="projects" className={styles.projects}>
                 <div className={styles.projectInner}>
                     <h2>Nos réalisations</h2>
-                    <div className={styles.projectBox}>
-                        <p>Nos premières réalisations arrivent très bientôt.</p>
+                    <p className={styles.projectSubtitle}>Une sélection de nos derniers projets clients.</p>
+
+                    <div className={styles.projectGrid}>
+                        {projects.slice(0, 3).map((project) => (
+                            <article key={project.id} className={styles.projectCard}>
+                                <div className={styles.cardImageWrapper}>
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        fill
+                                        className={styles.cardImage}
+                                    />
+                                </div>
+                                <div className={styles.cardContent}>
+                                    <span className={styles.cardCategory}>{project.category}</span>
+                                    <h3 className={styles.cardTitle}>{project.title}</h3>
+                                    <p className={styles.cardDescription}>{project.description}</p>
+                                    <div className={styles.viewProjectLink}>
+                                        {project.link ? (
+                                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                                Voir le projet <ArrowUpRight size={16} />
+                                            </a>
+                                        ) : (
+                                            <span>Bientôt disponible</span>
+                                        )}
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+
+                    <div className={styles.seeAllContainer}>
+                        <Link href="/realisations" className={styles.seeAllButton}>
+                            Voir toutes nos réalisations <ArrowRight size={20} />
+                        </Link>
                     </div>
                 </div>
             </section>
