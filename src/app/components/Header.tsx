@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../assets/img/logo.png';
 import styles from '../styles/header.module.css';
-import { Menu, X } from 'lucide-react'; // Assure-toi d'avoir installé Lucide : npm install lucide-react
+import { Menu, X } from 'lucide-react';
 
 export default function Header() {
     const [activeSection, setActiveSection] = useState<string>('home');
@@ -13,12 +13,12 @@ export default function Header() {
     const scrollToSection = (id: string) => {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
-        setMenuOpen(false); // Ferme le menu en mobile après clic
+        setMenuOpen(false);
     };
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['home', 'services', 'projects', 'contact'];
+            const sections = ['home', 'products', 'projects', 'contact'];
             for (const id of sections) {
                 const el = document.getElementById(id);
                 if (el) {
@@ -63,10 +63,10 @@ export default function Header() {
                     Accueil
                 </button>
                 <button
-                    onClick={() => scrollToSection('services')}
-                    className={activeSection === 'services' ? styles.active : ''}
+                    onClick={() => scrollToSection('products')}
+                    className={activeSection === 'products' ? styles.active : ''}
                 >
-                    Nos services
+                    Nos produits
                 </button>
                 <button
                     onClick={() => scrollToSection('projects')}

@@ -17,7 +17,6 @@ export default function Footer() {
                 flexWrap: 'wrap',
                 rowGap: '2rem',
             }}>
-                {/* Bloc gauche : contact */}
                 <div style={{
                     flex: '1 1 200px',
                     textAlign: 'center',
@@ -25,20 +24,18 @@ export default function Footer() {
                     <p style={{ margin: 0 }}>techflow.soluces@gmail.com</p>
                 </div>
 
-                {/* Bloc centre : navigation */}
                 <div style={{
                     flex: '1 1 200px',
                     textAlign: 'center',
                 }}>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                         <li><a href="#home" style={{ color: '#f0f0f0', textDecoration: 'none' }}>Accueil</a></li>
-                        <li><a href="#services" style={{ color: '#f0f0f0', textDecoration: 'none' }}>Nos services</a></li>
+                        <li><a href="#products" style={{ color: '#f0f0f0', textDecoration: 'none' }}>Nos produits</a></li>
                         <li><a href="#projects" style={{ color: '#f0f0f0', textDecoration: 'none' }}>Nos réalisations</a></li>
                         <li><a href="#contact" style={{ color: '#f0f0f0', textDecoration: 'none' }}>Contact</a></li>
                     </ul>
                 </div>
 
-                {/* Bloc droit : mentions légales */}
                 <div style={{
                     flex: '1 1 200px',
                     textAlign: 'center',
@@ -55,7 +52,7 @@ export default function Footer() {
                 flexWrap: 'wrap',
                 fontSize: '0.85rem',
             }}>
-                <p style={{ margin: 0 }}>© {new Date().getFullYear()} TechFlow – Tous droits réservés</p>
+                <p style={{ margin: 0 }}>&copy; {new Date().getFullYear()} TechFlow &ndash; Tous droits réservés</p>
             </div>
         </footer>
     );

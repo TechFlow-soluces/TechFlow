@@ -14,12 +14,12 @@ const agdasima = Agdasima({
 });
 
 export const metadata = {
-    title: "TechFlow - Agence web Castres & Mazamet",
-    description: "Agence web à Castres et Mazamet. Création de sites internet modernes, référencement SEO et solutions digitales sur mesure dans le Tarn.",
+    title: "TechFlow - Éditeur de solutions numériques",
+    description: "TechFlow, éditeur de solutions numériques : plateformes SaaS, jeux web et outils innovants pour le sport et le divertissement.",
     metadataBase: new URL("https://techflowsoluces.fr"),
     openGraph: {
-        title: "TechFlow - Agence web Castres & Mazamet",
-        description: "Agence web à Castres et Mazamet. Création de sites internet modernes, référencement SEO et solutions digitales sur mesure dans le Tarn.",
+        title: "TechFlow - Éditeur de solutions numériques",
+        description: "TechFlow, éditeur de solutions numériques : plateformes SaaS, jeux web et outils innovants pour le sport et le divertissement.",
         url: "https://techflowsoluces.fr",
         siteName: "TechFlow",
         images: [
@@ -27,7 +27,7 @@ export const metadata = {
                 url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "TechFlow - Agence web",
+                alt: "TechFlow - Éditeur de solutions numériques",
             },
         ],
         locale: "fr_FR",

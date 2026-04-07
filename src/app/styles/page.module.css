@@ -362,6 +362,42 @@ a.secondary {
   margin-bottom: 1rem;
 }
 
+.cardIcon {
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.cardTag {
+  font-size: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  color: #f0f0f0;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.2rem;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.cardLink:hover {
+  opacity: 0.8;
+}
+
 /* === DÉROULEMENT PROJET === */
 
 .sectionProcess {

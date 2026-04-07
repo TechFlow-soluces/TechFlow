@@ -5,17 +5,15 @@ import Image from 'next/image'
 import styles from '@/app/styles/page.module.css'
 import { projects } from '@/app/data/projects'
 import Link from 'next/link'
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Gamepad2, Target, Dices } from 'lucide-react'
 
 import img_accueil from '@/app/assets/img/img_accueil.png'
-import dev_web from '@/app/assets/img/dev_web.svg'
-import logiciel_metier from '@/app/assets/img/logiciel_metier.svg'
-import social_media from '@/app/assets/img/social_media.svg'
-import definition_besoin from '@/app/assets/img/definition_besoin.svg'
-import developpement from '@/app/assets/img/developpement.svg'
-import livraison_projet from '@/app/assets/img/livraison_projet.svg'
-import SEO from '@/app/assets/img/SEO.svg'
-import maintenance from '@/app/assets/img/maintenance.svg'
+
+const productIcons = [
+    <Gamepad2 key="gamepad" size={48} />,
+    <Target key="target" size={48} />,
+    <Dices key="dices" size={48} />,
+]
 
 export default function Home() {
     const [name, setName] = useState('')
@@ -58,10 +56,9 @@ export default function Home() {
                     <h2 className={styles.techflow}>TECHFLOW</h2>
                     <hr className={styles.line} />
                 </div>
-                <h1 className={styles.title}>AGENCE DIGITALE & CRÉATEUR DE SOLUTIONS</h1>
+                <h1 className={styles.title}>ÉDITEUR DE SOLUTIONS NUMÉRIQUES</h1>
                 <p className={styles.subtitle}>
-                    Développement de sites web, applications personnalisées, logiciels & gestion des réseaux sociaux
-                    pour booster votre présence en ligne.
+                    Solutions SaaS, jeux web et outils innovants conçus pour le sport et le divertissement.
                 </p>
                 <Image
                     src={img_accueil}
@@ -73,96 +70,51 @@ export default function Home() {
                 />
             </section>
 
-            <section id="services" className={styles.servicesSection}>
+            <section id="products" className={styles.servicesSection}>
                 <div className={styles.servicesContainer}>
-                    <h2 className={styles.servicesTitle}>Nos services</h2>
+                    <h2 className={styles.servicesTitle}>Nos produits</h2>
                     <div className={styles.servicesGrid}>
-                        <div className={styles.card}>
-                            <Image src={dev_web} alt="Web" className={styles.cardImg} width={400} height={300} />
-                            <h3>Développement Web & Mobile</h3>
-                            <p>Sites vitrines, e-commerce ou applications web/mobile modernes, responsives et optimisées SEO.</p>
-                        </div>
-                        <div className={styles.card}>
-                            <Image src={logiciel_metier} alt="Logiciel métier" className={styles.cardImg} width={400} height={300} />
-                            <h3>Développement de logiciels métiers</h3>
-                            <p>CRM, ERP, outils de gestion ou automatisation… des logiciels conçus sur mesure pour votre activité.</p>
-                        </div>
-                        <div className={styles.card}>
-                            <Image src={social_media} alt="Réseaux sociaux" className={styles.cardImg} width={400} height={300} />
-                            <h3>Stratégie digitale & réseaux sociaux</h3>
-                            <p>Gestion de contenu, animation de vos réseaux, croissance organique et planification stratégique.</p>
-                        </div>
+                        {projects.map((project, index) => (
+                            <div key={project.id} className={styles.card}>
+                                <div className={styles.cardIcon}>
+                                    {productIcons[index]}
+                                </div>
+                                <h3>{project.title}</h3>
+                                <p>{project.description}</p>
+                                <div className={styles.cardTags}>
+                                    {project.tags.map(tag => (
+                                        <span key={tag} className={styles.cardTag}>{tag}</span>
+                                    ))}
+                                </div>
+                                {project.link && (
+                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
+                                        Découvrir <ArrowUpRight size={16} />
+                                    </a>
+                                )}
+                            </div>
+                        ))}
                     </div>
-                </div>
-            </section>
-
-            <section id="process" className={styles.sectionProcess}>
-                <div className={styles.container}>
-                    <h2 className={styles.title}>Déroulement d’un projet</h2>
-                    {[
-                        {
-                            img: definition_besoin, alt: 'Définir vos besoins', title: 'Définir vos besoins', reverse: false, text: `Avant de commencer tout développement, nous organisons un rendez-vous pour échanger sur votre activité, vos objectifs, vos attentes et vos contraintes.
-
-Cette étape est essentielle pour bien cerner votre projet. Elle nous permet de poser les bases d’une solution pertinente et sur-mesure.
-
-À l’issue de cet échange, nous rédigeons un cahier des charges clair et structuré, qui servira de fil conducteur tout au long du projet.` },
-                        {
-                            img: developpement, alt: 'Développement', title: 'Développement', reverse: true, text: `Une fois le périmètre du projet bien défini, nous lançons la phase de développement afin de traduire votre cahier des charges en une solution fonctionnelle : site web, application ou logiciel.
-
-Selon vos besoins, nous utilisons des technologies modernes, adaptées, performantes et évolutives.
-
-Le développement se fait de manière itérative, avec plusieurs versions livrées au fil de l’avancement.
-
-Les maquettes validées sont intégrées au fur et à mesure, et vous restez en contact permanent avec notre équipe.` },
-                        {
-                            img: livraison_projet, alt: 'Livraison', title: 'Livraison du projet', reverse: false, text: `Une fois le développement terminé, nous procédons à la livraison complète de votre projet, prêt à être mis en ligne.
-
-Deux possibilités :
-– Vous gérez l’hébergement vous-même : nous vous fournissons les fichiers + base de données.
-– Nous nous en chargeons : nous assurons la mise en ligne et la configuration.
-
-Dans tous les cas, nous vérifions que tout fonctionne avant validation finale.` },
-                        {
-                            img: SEO, alt: 'SEO', title: 'Référencement SEO', reverse: true, text: `Le référencement naturel est un levier indispensable pour améliorer la visibilité de votre site.
-
-SEO on-site : technique, responsive, accessibilité
-SEO off-site : netlinking
-
-Nous vous accompagnons avec une stratégie sur mesure pour un trafic qualifié.` },
-                        {
-                            img: maintenance, alt: 'Maintenance', title: 'Maintenance & évolution', reverse: false, text: `Une fois le projet en ligne, notre équipe reste à votre disposition pour toute évolution, mise à jour ou correctif.
-
-Nous concevons votre site de manière évolutive pour s’adapter à vos besoins futurs sans tout reconstruire.` },
-                    ].map(({ img, alt, title, text, reverse }, index) => (
-                        <div key={index} className={`${styles.step} ${reverse ? styles.reverse : ''}`}>
-                            <div className={styles.imageWrapper}>
-                                <Image src={img} alt={alt} className={styles.projectImage} width={500} height={400} />
-                            </div>
-                            <div className={styles.textBlock}>
-                                <h3 className={styles.subtitle}>{title}</h3>
-                                <p>{text}</p>
-                            </div>
-                        </div>
-                    ))}
                 </div>
             </section>
 
             <section id="projects" className={styles.projects}>
                 <div className={styles.projectInner}>
-                    <h2>Nos réalisations</h2>
-                    <p className={styles.projectSubtitle}>Une sélection de nos derniers projets clients.</p>
+                    <h2>Nos produits en détail</h2>
+                    <p className={styles.projectSubtitle}>Découvrez nos solutions numériques.</p>
 
                     <div className={styles.projectGrid}>
                         {projects.slice(0, 3).map((project) => (
                             <article key={project.id} className={styles.projectCard}>
-                                <div className={styles.cardImageWrapper}>
-                                    <Image
-                                        src={project.image}
-                                        alt={project.title}
-                                        fill
-                                        className={styles.cardImage}
-                                    />
-                                </div>
+                                {project.image && (
+                                    <div className={styles.cardImageWrapper}>
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            className={styles.cardImage}
+                                        />
+                                    </div>
+                                )}
                                 <div className={styles.cardContent}>
                                     <span className={styles.cardCategory}>{project.category}</span>
                                     <h3 className={styles.cardTitle}>{project.title}</h3>
@@ -183,7 +135,7 @@ Nous concevons votre site de manière évolutive pour s’adapter à vos besoins
 
                     <div className={styles.seeAllContainer}>
                         <Link href="/realisations" className={styles.seeAllButton}>
-                            Voir toutes nos réalisations <ArrowRight size={20} />
+                            Voir tous nos produits <ArrowRight size={20} />
                         </Link>
                     </div>
                 </div>
